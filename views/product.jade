@@ -1,0 +1,15 @@
+doctype html
+html(lang="en")
+  head
+    title All saved images
+  body
+    a(href="/") Home Page
+    h1 List of Images Saved in MongoDB:
+    if products.length <= 0
+      p No images saved in MongoDB.
+    else
+      ul
+        each data in products
+          li
+          a(href="#{data._id}")
+              img(src="data:#{data.image.contentType};base64,#{data.image.data}", width="450", height="450", title="This image was reduced in the HTML to 450px in height and 450px in width.", alt="Image from server")
